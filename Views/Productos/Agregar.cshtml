@@ -1,0 +1,81 @@
+@model Productos
+
+
+<div class="content">
+    <div class="text-center">
+        <h1 class="display-4">Nuevo Producto</h1>
+        <br>
+        @Html.ActionLink("Volver sin guardar cambios","Index")
+        <br>
+        <br>
+        @using (@Html.BeginForm(null,null,FormMethod.Post,new {enctype="multipart/form-data"}))
+        {
+            <div class="form-group">
+                @Html.LabelFor(m=> m.Nombre)
+                @Html.TextBoxFor(m => m.Nombre,
+            new {@class="form-control"}
+                )
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m=>m.Marca)
+                @Html.TextBoxFor(m=>m.Marca,
+            new {@class="form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m=>m.Stock)
+                @Html.TextBoxFor(m=>m.Stock,
+            new {@class="form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m=>m.Costo)
+                @Html.TextBoxFor(m=>m.Costo,
+            new {@class="form-control"} )
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m=>m.Detalle)
+                @Html.TextBoxFor(m=>m.Detalle,
+            new {@class="form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m=>m.Ingreso)
+                @Html.EditorFor(m => m.Ingreso, new { htmlAttributes = new { @class = "form-control", min = "2020-11-01", max = "2050-01-01" } })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p=>p.Foto)
+                <div class="custom-file">
+                    @Html.TextBoxFor(p=>p.Foto, new {type="file",@class="form-control custom-file-input"})
+                    @Html.LabelFor(p=>p.Foto,"Seleccionar Foto",new { @class="custom-file-label"})
+                </div>
+            </div>
+            <div class="form-group form-check">
+                Formato:
+                Verduleria: @Html.RadioButtonFor(m => m.TipoProductoId,1)
+                Almacen: @Html.RadioButtonFor(m => m.TipoProductoId,2)
+                Heladera: @Html.RadioButtonFor(m => m.TipoProductoId,3)
+                Congelados: @Html.RadioButtonFor(m => m.TipoProductoId,4)
+                Cosmética: @Html.RadioButtonFor(m => m.TipoProductoId,5)
+                Limpieza: @Html.RadioButtonFor(m => m.TipoProductoId,6)
+            </div>
+            <div class="form-group">
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    @Html.ValidationSummary(false,"Solucionar los siguientes errores:",
+            new { @class="text-danger" })
+                }
+                </div>
+            <input type="submit" value="Guardar nuevo" />
+        }
+
+    @section Scripts{
+        <script>
+        $(document).ready(function(){
+            $('.custom-file-input').on("change",function(){
+                var nombreArchivo=$(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(nombreArchivo);
+            });
+        });
+        </script>
+}
+    </div>
+</div>

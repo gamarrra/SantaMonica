@@ -1,0 +1,60 @@
+@model X.PagedList.PagedList<ProductosDto>
+@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Core;
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSS Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" id="campobusqueda" name="campobusqueda" type="search"
+                    placeholder="Marca o Nombre" aria-label="Buscar">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+    <nav class="order">
+        <div>
+            @Html.ActionLink("Ordenar por Precio","OrderPrecio")
+            @Html.ActionLink("Ordenar ABC","OrderABC")
+        </div>
+    </nav>
+    <div class="content">
+        <table class="tablacards">
+            @foreach (var prod in Model)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img src='@Url.Content("~/img/"  + @prod.FotoRuta)' class="square" style="width: 18rem;height:18rem;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@prod.Nombre</h5>
+                        <p class="card-text">@prod.Detalle</p>
+                        <p class="card-text">@prod.Marca</p>
+                        <p class="card-text">$ @prod.Costo</p>
+                        <button class="btn btn-primary">@Html.ActionLink("Sumar a Carrito","Comprar",new { id=prod.Id })</button>
+                    </div>
+                </div>
+            }
+        </table>
+    </div>
+</body>
+
+</html>
+
+Pagina @(Model.PageCount < Model.PageNumber ? 0 :Model.PageNumber ) de @Model.PageCount
+
+@Html.PagedListPager(Model,pagina =>
+Url.Action("Index",new {pagina, sortOrder=ViewBag.CurrentoSort,currentFilter=ViewBag.currentFilter}),
+new X.PagedList.Mvc.Core.Common.PagedListRenderOptions{
+ContainerDivClasses=new []{"navigation"},
+PageClasses=new []{ "page-link"},
+LiElementClasses=Enumerable.Empty<string>(),
+}
+)

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HPPParcial2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <header class="headerlayout">
+        <div class="navusuarios">
+        </div>
+        <br>
+        <div class="loguix">
+            <img src='@Url.Content("~/img/logo.png" )'>
+        </div>
+        <div class="linksnav">
+            <a class="anav" @Html.ActionLink("Home","Index")</a>
+                <a class="anav" @Html.ActionLink("Verduleria","SubPagina",new{categoria=1})</a>
+                    <a class="anav" @Html.ActionLink("Almacen","SubPagina",new{categoria=2})</a>
+                        <a class="anav" @Html.ActionLink("Heladera","SubPagina",new{categoria=3})</a>
+                            <a class="anav" @Html.ActionLink("Congelados","SubPagina",new{categoria=4})</a>
+                                <a class="anav" @Html.ActionLink("Cosmética","SubPagina",new{categoria=5})</a>
+                                    <a class="anav" @Html.ActionLink("Limpieza","SubPagina",new{categoria=6})</a>
+                                        <a class="anav" @Html.ActionLink("Ver Carrito","Carrito")</a>
+                                            <a class="anav" @Html.ActionLink("Editar","Edicion")</a>
+                                                <a class="anav" @Html.ActionLink("Crear","Agregar")</a>
+
+
+        </div>
+        <br>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <partial name="_LoginPartial"></partial>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - Santa Monica Almacen
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

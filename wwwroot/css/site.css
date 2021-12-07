@@ -1,0 +1,158 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: right !important;
+  word-break: break-all;
+  color: #181935 !important;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #363636;
+}
+a:hover {
+  color: #8595a5 !important;
+}
+
+.account{
+  box-sizing: content-box!important;
+}
+
+.btn-primary {
+  color: #181935;
+  background-color: #a5a5a5;
+  border-color: white;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #181935 !important;
+  background-color: #8595a5;
+  border-color: #1861ac;
+  text-align: right !important;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #cfd3cf;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  background-color: #6bc1b0;
+}
+
+img.avatar {
+  border-radius: 50%;
+  width: 30%;
+  height: 30%;
+  object-fit: contain;
+  background-color: #6bc1b0;
+}
+.linksnav {
+  background-color: #363636;
+  font-family: Arial, Helvetica, sans-serif;
+  display: -webkit-box;
+  font-size: medium;
+  padding-left: 220px;
+  width: 100% !important;
+}
+.anav {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.anav:hover {
+  background-color: #111;
+}
+.loguix {
+  padding-left: 505px;
+}
+
+.card {
+  display: inline-flex;
+  background-color: #cfd3cf !important;
+}
+
+.headerlayout {
+  background-color: #6bc1b0;
+  display: block !important;
+  height: 396px !important;
+}
+
+.content {
+  padding-top: 25px;
+  padding-bottom: 40px;
+  padding-left: 98px !important;
+  width: 100% !important;
+}
+
+.form-group {
+  width: 80% !important;
+  padding-left: 200px !important;
+}
+
+.order {
+  display: inline-flex !important;
+  margin-left: 395px !important;
+  margin-top: 20px !important;
+  width: 100% !important;
+}
+.navusuarios {
+  display: flow-root !important;
+  margin-inline: 20px;
+}
+
+.logueo {
+  width: 80%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-left: 90px;
+}
